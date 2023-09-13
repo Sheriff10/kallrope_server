@@ -26,12 +26,18 @@ const user_login = require("./routes/user/user-login");
 const user_panic = require("./routes/user/send-panic");
 
 mongoose
-   .connect("mongodb+srv://ibrahimsheriff999:GESS7iN1MxLxU7ws@cluster0.qmlkd1x.mongodb.net/?retryWrites=true&w=majority")
+   .connect(
+      "mongodb+srv://ibrahimsheriff999:GESS7iN1MxLxU7ws@cluster0.qmlkd1x.mongodb.net/?retryWrites=true&w=majority"
+   )
    .then(() => console.log("Database Connected Successfully"))
    .catch((err) => console.log("Database Connection Error: " + err));
 
 const app = express();
-app.use(cors());
+app.use(
+   cors({
+      "Access-Control-Allow-Origin": "*",
+   })
+);
 app.use(express.json());
 
 app.use(
